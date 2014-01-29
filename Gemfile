@@ -4,6 +4,11 @@ gem 'haml'
 gem 'sinatra'
 gem 'bcrypt-ruby'
 gem 'activerecord'
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+end
+group :development, :test do
+  gem 'sqlite3'
+end
 gem 'pony'
 gem 'warden'
