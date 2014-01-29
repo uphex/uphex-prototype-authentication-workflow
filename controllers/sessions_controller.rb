@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   end
 
   post '/' do
-    env['warden'].authenticate!
+    env['warden'].authenticate(:password)
     if env['warden'].authenticated?
       redirect '/'
     else

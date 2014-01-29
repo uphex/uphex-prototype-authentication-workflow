@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
 
     def authenticate!
       user = User.find_by_email(params["email"])
-      if user && Password.new(user.password)!=params[:password]
+      if user && Password.new(user.password)==params['password']
         success!(user)
       else
         fail!("Could not log in")
@@ -41,7 +41,7 @@ class ApplicationController < Sinatra::Base
     @authenticated=env['warden'].authenticated?
   end
 
-  post "/unauthenticated" do
+  post '/unauthenticated' do
     redirect "/"
   end
 
