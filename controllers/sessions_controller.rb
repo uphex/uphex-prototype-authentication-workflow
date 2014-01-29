@@ -1,4 +1,5 @@
 require 'bcrypt'
+
 class SessionsController < ApplicationController
   include BCrypt
 
