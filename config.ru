@@ -8,10 +8,15 @@ map('/users') { run UsersController }
 map('/sessions') { run SessionsController }
 map('/') { run ApplicationController }
 
-ActiveRecord::Base.establish_connection(
-    :adapter  => 'sqlite3',
-    :database => 'file'
-)
+if env['RACK_ENV']=='production'
+  ActiveRecord::Base.establish_connection(env["DATABASE_URL"])
+else
+  ActiveRecord::Base.establish_connection(
+      :adapter  => 'sqlite3',
+      :database => 'file'
+  )
+end
+
 ActiveRecord::Base.logger = Logger.new(STDERR)
 
 ActiveRecord::Schema.define do
