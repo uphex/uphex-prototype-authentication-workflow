@@ -1,9 +1,8 @@
-$:.unshift(File.expand_path('../../lib', __FILE__))
-
 require 'sinatra/base'
 require 'haml'
 require 'warden'
 require 'bcrypt'
+
 
 class ApplicationController < Sinatra::Base
   include BCrypt
