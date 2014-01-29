@@ -32,3 +32,4 @@ ActiveRecord::Schema.define do
     end
   end
 end
+

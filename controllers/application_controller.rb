@@ -48,4 +48,8 @@ class ApplicationController < Sinatra::Base
   get '/' do
     haml :index,:layout=>:'layouts/primary'
   end
+
+  after do
+    ActiveRecord::Base.connection.close
+  end
 end

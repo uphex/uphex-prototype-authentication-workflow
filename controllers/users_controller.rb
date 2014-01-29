@@ -23,11 +23,6 @@ class UsersController < ApplicationController
     else
       @user=User.create(:email=>params[:email],:password=>Password.create(params[:password]),:verified=>false)
       env['warden'].authenticate!
-      Pony.mail :to => 'uphextest@mailinator.com',
-                :from => 'uphextest@mailinator.com',
-                :subject => 'Howdy, Partna!',
-                :body=>'test mail',
-                :via => :smtp
       redirect '/'
     end
   end
