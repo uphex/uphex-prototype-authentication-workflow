@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title UpHex
+  %body
+    #header
+      %h1 UpHex
+      - if @authenticated
+        %a{:href=>'/users/me'}
+          My page
+        %form{:action=>'/sessions/me',:method=>'POST',:style=>'display:inline'}
+          %input{:type=>'hidden',:name=>'_method',:value=>'DELETE'}
+          %input{:type=>'submit',:value=>'Log out'}
+      - else
+        %a{:href=>'/users/new'}
+          Sign up
+        %a{:href=>'/sessions/new'}
+          Sign in
+
+    #content
+      =yield

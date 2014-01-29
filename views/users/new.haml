@@ -1,0 +1,26 @@
+%form{:action => "/users", :method => "post"}
+  %fieldset
+    %ul
+      %li
+        %label{:for=>'email'}
+          Email:
+        %input{:type=>'text',:name=>'email',:value=>"#{params[:email]}"}
+        - if @email_taken_error
+          %label{:for=>'email'}
+            Email is taken!
+      %li
+        %label{:for=>'password'}
+          Password:
+        %input{:type=>'text',:name=>'password',:value=>"#{params[:password]}"}
+        - if @password_empty_error
+          %label{:for=>'password'}
+            Password must not be empty!
+      %li
+        %label{:for=>'repassword'}
+          Retype password:
+        %input{:type=>'text',:name=>'repassword',:value=>"#{params[:repassword]}"}
+      - if @repassword_not_match_error
+        %label{:for=>'repassword'}
+          Passwords don't match!
+      %li
+        %input{:type => "submit", :value => "Send", :class => "button"}

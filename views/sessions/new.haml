@@ -1,0 +1,16 @@
+%form{:action => "/sessions", :method => "post"}
+  %fieldset
+    %ul
+      - if @auth_error
+        %label
+          Sign in failed
+      %li
+        %label{:for=>'email'}
+          Email:
+        %input{:type=>'text',:name=>'email',:value=>"#{params[:email]}"}
+      %li
+        %label{:for=>'password'}
+          Password:
+        %input{:type=>'text',:name=>'password',:value=>"#{params[:password]}"}
+      %li
+        %input{:type => "submit", :value => "Sign in", :class => "button"}
