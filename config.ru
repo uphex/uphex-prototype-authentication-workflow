@@ -1,7 +1,11 @@
 require 'sinatra/base'
 require 'active_record'
 
-Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
+require './controllers/application_controller.rb'
+require './controllers/sessions_controller.rb'
+require './controllers/users_controller.rb'
+
+Dir.glob('./{models,helpers}/*.rb').each { |file| require file }
 
 
 map('/users') { run UsersController }
