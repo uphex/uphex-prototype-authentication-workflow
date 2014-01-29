@@ -8,8 +8,8 @@ map('/users') { run UsersController }
 map('/sessions') { run SessionsController }
 map('/') { run ApplicationController }
 
-if env['RACK_ENV']=='production'
-  ActiveRecord::Base.establish_connection(env["DATABASE_URL"])
+if ENV['RACK_ENV']=='production'
+  ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
 else
   ActiveRecord::Base.establish_connection(
       :adapter  => 'sqlite3',
