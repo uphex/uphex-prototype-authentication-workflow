@@ -10,7 +10,7 @@ class AuthController < ApplicationController
     client = Rack::OAuth2::Client.new(
         :identifier => '1011373896516-52e40da4vb1plati9sv088tdg80l5efk.apps.googleusercontent.com',
         :secret => 'YlBuX-K9Bn5P9eFnM6O4jC6c',
-        :redirect_uri => 'http://127.0.0.1:9292/auth/oauth-v2/google/callback', # only required for grant_type = :code
+        :redirect_uri => request.url+'/callback', # only required for grant_type = :code
         :host => 'accounts.google.com',
         :authorization_endpoint=>'/o/oauth2/auth'
     )
@@ -30,7 +30,7 @@ class AuthController < ApplicationController
     client = Rack::OAuth2::Client.new(
         :identifier => '1011373896516-52e40da4vb1plati9sv088tdg80l5efk.apps.googleusercontent.com',
         :secret => 'YlBuX-K9Bn5P9eFnM6O4jC6c',
-        :redirect_uri => 'http://127.0.0.1:9292/auth/oauth-v2/google/callback', # only required for grant_type = :code
+        :redirect_uri => request.scheme.to_s+'://'+request.host.to_s+':'+request.port.to_s+request.path.to_s, # only required for grant_type = :code
         :host => 'accounts.google.com',
         :token_endpoint=>'/o/oauth2/token'
     )
