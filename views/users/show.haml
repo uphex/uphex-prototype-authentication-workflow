@@ -1,1 +1,6 @@
-THIS IS #{@userid}
+%div Email: #{@currentuser.email}
+%div Verified: #{@currentuser.verified}
+%div Services:
+%div
+  - @providers.each do |provider|
+    #{provider.name}

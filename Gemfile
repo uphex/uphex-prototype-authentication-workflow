@@ -12,3 +12,4 @@ group :development, :test do
 end
 gem 'pony'
 gem 'warden'
+gem 'rack-oauth2'

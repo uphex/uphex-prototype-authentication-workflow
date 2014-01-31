@@ -3,7 +3,6 @@ require 'haml'
 require 'warden'
 require 'bcrypt'
 
-
 class ApplicationController < Sinatra::Base
   include BCrypt
   use Rack::Session::Cookie

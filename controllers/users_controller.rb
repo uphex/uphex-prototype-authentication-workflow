@@ -31,7 +31,10 @@ class UsersController < ApplicationController
     unless env['warden'].authenticated?
       redirect '/sessions/new'
     end
-    @userid=env['warden'].user.id
+    @currentuser=env['warden'].user
+
+    @providers= Provider.where(:userid=>@currentuser.id)
+
     haml :'users/show',:layout=>:'layouts/primary'
   end
 
