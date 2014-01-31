@@ -50,7 +50,7 @@ class AuthController < ApplicationController
     #till
 
     if token.refresh_token
-      @provider=Provider.create(:name=>'google',:userid=>env['warden'].user.id,:access_token=>token.access_token,:expiration_date=>token.expires_in,:token_type=>'access',:refresh_token=>token.refresh_token,:raw_response=>'TODO')
+      @provider=Provider.create(:name=>'google',:userid=>env['warden'].user.id,:access_token=>token.access_token,:expiration_date=>Time.now+token.expires_in.to_i,:token_type=>'access',:refresh_token=>token.refresh_token,:raw_response=>'TODO')
       @success=true
       rsp=Rack::OAuth2.http_client.get('https://www.googleapis.com/analytics/v3/management/accounts',[],:Authorization=>'Bearer '+token.access_token)
       @rsp=rsp.body
