@@ -1,5 +1,7 @@
 %div Email: #{@currentuser.email}
 %div Verified: #{@currentuser.verified}
+%a{:href=>'/auth/oauth-v2/google'}
+  Add Google
 %div Services:
 %div
   - @providers.each do |provider|
