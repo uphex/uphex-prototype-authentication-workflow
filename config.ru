@@ -36,7 +36,7 @@ ActiveRecord::Schema.define do
   unless ActiveRecord::Base.connection.tables.include? 'providers'
     create_table :providers do |table|
       table.column :name,     :string
-      table.column :userid, :number
+      table.column :userid, :numeric
       table.column :access_token, :string
       table.column :expiration_date, :date
       table.column :token_type, :string
