@@ -15,7 +15,7 @@ class AuthController < ApplicationController
         :authorization_endpoint=>'/o/oauth2/auth'
     )
 
-    url=client.authorization_uri(:scope => 'https://www.googleapis.com/auth/analytics.readonly',:access_type=>'offline')
+    url=client.authorization_uri(:scope => 'https://www.googleapis.com/auth/analytics.readonly',:access_type=>'offline',:approval_prompt=>'force')
 
     puts url
 
