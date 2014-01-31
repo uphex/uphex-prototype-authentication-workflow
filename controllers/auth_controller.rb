@@ -27,10 +27,16 @@ class AuthController < ApplicationController
       redirect '/sessions/new'
     end
 
+    if request.port!=80
+      url=request.scheme.to_s+'://'+request.host.to_s+':'+request.port.to_s+request.path.to_s
+    else
+      url=request.scheme.to_s+'://'+request.host.to_s+request.path.to_s
+    end
+
     client = Rack::OAuth2::Client.new(
         :identifier => '1011373896516-52e40da4vb1plati9sv088tdg80l5efk.apps.googleusercontent.com',
         :secret => 'YlBuX-K9Bn5P9eFnM6O4jC6c',
-        :redirect_uri => request.scheme.to_s+'://'+request.host.to_s+(':'+request.port.to_s if request.port!=80)+request.path.to_s, # only required for grant_type = :code
+        :redirect_uri => url, # only required for grant_type = :code
         :host => 'accounts.google.com',
         :token_endpoint=>'/o/oauth2/token'
     )
