@@ -31,6 +31,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    oauth (0.4.7)
     pg (0.17.0)
     polyglot (0.3.3)
     pony (1.6.2)
@@ -66,6 +67,7 @@ DEPENDENCIES
   activerecord
   bcrypt-ruby
   haml
+  oauth
   pg
   pony
   rack-oauth2

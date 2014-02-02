@@ -13,3 +13,4 @@ end
 gem 'pony'
 gem 'warden'
 gem 'rack-oauth2'
+gem 'oauth'

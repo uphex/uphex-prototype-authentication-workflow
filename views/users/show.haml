@@ -2,6 +2,8 @@
 %div Verified: #{@currentuser.verified}
 %a{:href=>'/auth/oauth-v2/google'}
   Add Google
+%a{:href=>'/auth/oauth-v1/twitter'}
+  Add Twitter
 %div Services:
 %div
   - @providers.each do |provider|

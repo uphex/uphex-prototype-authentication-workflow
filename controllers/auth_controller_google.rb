@@ -1,8 +1,8 @@
 require 'rack/oauth2'
 
-class AuthController < ApplicationController
+class GoogleAuthController < ApplicationController
 
-  get '/oauth-v2/google' do
+  get '/' do
     unless env['warden'].authenticated?
       redirect '/sessions/new'
     end
@@ -22,7 +22,7 @@ class AuthController < ApplicationController
     redirect url
   end
 
-  get '/oauth-v2/google/callback' do
+  get '/callback' do
     unless env['warden'].authenticated?
       redirect '/sessions/new'
     end
@@ -49,16 +49,11 @@ class AuthController < ApplicationController
     token=client.access_token!(:authorization_code)
     #till
 
-    if token.refresh_token
-      @provider=Provider.create(:name=>'google',:userid=>env['warden'].user.id,:access_token=>token.access_token,:expiration_date=>Time.now+token.expires_in.to_i,:token_type=>'access',:refresh_token=>token.refresh_token,:raw_response=>'TODO')
-      @success=true
-      rsp=Rack::OAuth2.http_client.get('https://www.googleapis.com/analytics/v3/management/accounts',[],:Authorization=>'Bearer '+token.access_token)
-      @rsp=rsp.body
-    else
-      @success=false;
-    end
+    @provider=Provider.create(:name=>'google',:userid=>env['warden'].user.id,:access_token=>token.access_token,:expiration_date=>Time.now+token.expires_in.to_i,:token_type=>'access',:refresh_token=>token.refresh_token,:raw_response=>'TODO')
+    rsp=Rack::OAuth2.http_client.get('https://www.googleapis.com/analytics/v3/management/accounts',[],:Authorization=>'Bearer '+token.access_token)
+    @rsp=rsp.body
 
-    haml :'auth/oauth_v2/callback',:layout=>:'layouts/primary'
+    haml :'auth/oauth_v2/google/callback',:layout=>:'layouts/primary'
 
     #refresh
     #client.refresh_token =token.refresh_token
