@@ -53,7 +53,7 @@ class MailchimpAuthController < ApplicationController
     rsp=Rack::OAuth2.http_client.get('https://login.mailchimp.com/oauth2/metadata',[],:Authorization=>'Bearer '+token.access_token)
     @rsp=rsp.body
 
-    haml :'auth/oauth_v2/google/callback',:layout=>:'layouts/primary'
+    haml :'auth/oauth_v2/mailchimp/callback',:layout=>:'layouts/primary'
 
     #refresh
     #client.refresh_token =token.refresh_token
