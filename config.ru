@@ -7,6 +7,7 @@ require './controllers/users_controller.rb'
 require './controllers/auth_controller_google.rb'
 require './controllers/auth_controller_twitter.rb'
 require './controllers/auth_controller_facebook.rb'
+require './controllers/auth_controller_mailchimp.rb'
 
 Dir.glob('./{models,helpers}/*.rb').each { |file| require file }
 
@@ -16,6 +17,7 @@ map('/sessions') { run SessionsController }
 map('/auth/oauth-v2/google') { run GoogleAuthController }
 map('/auth/oauth-v1/twitter') { run TwitterAuthController }
 map('/auth/oauth-v2/facebook') { run FacebookAuthController }
+map('/auth/oauth-v2/mailchimp') { run MailchimpAuthController }
 map('/') { run ApplicationController }
 
 if ENV['RACK_ENV']=='production'
