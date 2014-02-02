@@ -4,7 +4,45 @@
   Add Google
 %a{:href=>'/auth/oauth-v1/twitter'}
   Add Twitter
+%a{:href=>'/auth/oauth-v2/facebook'}
+  Add Facebook
 %div Services:
 %div
-  - @providers.each do |provider|
-    #{provider.name}
+  %table
+    %thead
+      %tr
+        %th
+          Name
+        %th
+          User ID
+        %th
+          Access Token
+        %th
+          Access Token Secret
+        %th
+          Expiration Date
+        %th
+          Token Type
+        %th
+          Refresh Token
+        %th
+          Raw Response
+    %tbody
+      - @providers.each do |provider|
+        %tr
+          %td
+            #{provider.name}
+          %td
+            #{provider.userid}
+          %td{:title=>provider.access_token,:style=>'overflow:hidden;text-overflow: ellipsis;max-width:300px;'}
+            #{provider.access_token}
+          %td
+            #{provider.access_token_secret}
+          %td
+            #{provider.expiration_date}
+          %td
+            #{provider.token_type}
+          %td
+            #{provider.refresh_token}
+          %td
+            #{provider.raw_response}

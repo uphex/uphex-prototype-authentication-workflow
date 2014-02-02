@@ -25,6 +25,7 @@ GEM
       tilt
     httpclient (2.3.4.1)
     i18n (0.6.9)
+    json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -67,6 +68,7 @@ DEPENDENCIES
   activerecord
   bcrypt-ruby
   haml
+  json
   oauth
   pg
   pony

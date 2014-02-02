@@ -6,6 +6,7 @@ require './controllers/sessions_controller.rb'
 require './controllers/users_controller.rb'
 require './controllers/auth_controller_google.rb'
 require './controllers/auth_controller_twitter.rb'
+require './controllers/auth_controller_facebook.rb'
 
 Dir.glob('./{models,helpers}/*.rb').each { |file| require file }
 
@@ -14,6 +15,7 @@ map('/users') { run UsersController }
 map('/sessions') { run SessionsController }
 map('/auth/oauth-v2/google') { run GoogleAuthController }
 map('/auth/oauth-v1/twitter') { run TwitterAuthController }
+map('/auth/oauth-v2/facebook') { run FacebookAuthController }
 map('/') { run ApplicationController }
 
 if ENV['RACK_ENV']=='production'

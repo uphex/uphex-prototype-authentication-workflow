@@ -33,7 +33,7 @@ class TwitterAuthController < ApplicationController
 
     @rsp=response.body
 
-    @provider=Provider.create(:name=>'twitter',:userid=>env['warden'].user.id,:access_token=>@access_token.token,:expiration_date=>Time.now+10*365*24*60*60,:token_type=>'access',:access_token_secret=>@access_token.secret,:raw_response=>'TODO')
+    @provider=Provider.create(:name=>'twitter',:userid=>env['warden'].user.id,:access_token=>@access_token.token,:token_type=>'access',:access_token_secret=>@access_token.secret,:raw_response=>'TODO')
 
     haml :'auth/oauth_v1/twitter/callback',:layout=>:'layouts/primary'
 
