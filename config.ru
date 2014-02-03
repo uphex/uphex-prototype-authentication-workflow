@@ -4,6 +4,7 @@ require 'active_record'
 require './controllers/application_controller.rb'
 require './controllers/sessions_controller.rb'
 require './controllers/users_controller.rb'
+require './controllers/verifications_controller.rb'
 require './controllers/auth_controller_google.rb'
 require './controllers/auth_controller_twitter.rb'
 require './controllers/auth_controller_facebook.rb'
@@ -14,6 +15,7 @@ Dir.glob('./{models,helpers}/*.rb').each { |file| require file }
 
 map('/users') { run UsersController }
 map('/sessions') { run SessionsController }
+map('/verifications') { run VerificationsController }
 map('/auth/oauth-v2/google') { run GoogleAuthController }
 map('/auth/oauth-v1/twitter') { run TwitterAuthController }
 map('/auth/oauth-v2/facebook') { run FacebookAuthController }
@@ -37,6 +39,7 @@ ActiveRecord::Schema.define do
       table.column :email,     :string
       table.column :password, :string
       table.column :verified, :bool
+      table.column :verification_id, :string
     end
   end
   unless ActiveRecord::Base.connection.tables.include? 'providers'
