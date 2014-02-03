@@ -72,6 +72,8 @@ class UsersController < ApplicationController
 
   get '/:id' do
     @userid=params[:id]
+    @currentuser=User.find(@userid)
+    @providers= Provider.where(:userid=>@currentuser.id)
     haml :'users/show',:layout=>:'layouts/primary'
   end
 end
