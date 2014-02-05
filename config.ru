@@ -1,20 +1,20 @@
 require 'sinatra/base'
 require 'active_record'
 
-require './controllers/application_controller.rb'
-require './controllers/sessions_controller.rb'
-require './controllers/users_controller.rb'
-require './controllers/verifications_controller.rb'
-require './controllers/OAuthV1AuthenticationStrategy.rb'
-require './controllers/OAuthV2AuthenticationStrategy.rb'
-require './controllers/GoogleAuthenticationStrategy.rb'
-require './controllers/FacebookAuthenticationStrategy.rb'
-require './controllers/MailchimpAuthenticationStrategy.rb'
-require './controllers/TwitterAuthenticationStrategy.rb'
-require './controllers/auth_controller.rb'
+require File.expand_path("../controllers/application_controller.rb", __FILE__)
+require File.expand_path("../controllers/sessions_controller.rb", __FILE__)
+require File.expand_path("../controllers/users_controller.rb", __FILE__)
+require File.expand_path("../controllers/verifications_controller.rb", __FILE__)
+require File.expand_path("../controllers/OAuthV1AuthenticationStrategy.rb", __FILE__)
+require File.expand_path("../controllers/OAuthV2AuthenticationStrategy.rb", __FILE__)
+require File.expand_path("../controllers/GoogleAuthenticationStrategy.rb", __FILE__)
+require File.expand_path("../controllers/FacebookAuthenticationStrategy.rb", __FILE__)
+require File.expand_path("../controllers/MailchimpAuthenticationStrategy.rb", __FILE__)
+require File.expand_path("../controllers/TwitterAuthenticationStrategy.rb", __FILE__)
+require File.expand_path("../controllers/auth_controller.rb", __FILE__)
 
-
-Dir.glob('./{models,helpers}/*.rb').each { |file| require file }
+require File.expand_path("../models/user.rb", __FILE__)
+require File.expand_path("../models/provider.rb", __FILE__)
 
 
 map('/users') { run UsersController }
@@ -26,10 +26,17 @@ map('/') { run ApplicationController }
 if ENV['RACK_ENV']=='production'
   ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
 else
-  ActiveRecord::Base.establish_connection(
-      :adapter  => 'sqlite3',
-      :database => 'file'
-  )
+  if ENV['RACK_ENV']=='test'
+     ActiveRecord::Base.establish_connection(
+         :adapter  => 'sqlite3',
+         :database => ':memory:'
+     )
+  else
+    ActiveRecord::Base.establish_connection(
+        :adapter  => 'sqlite3',
+        :database => 'file'
+    )
+  end
 end
 
 ActiveRecord::Base.logger = Logger.new(STDERR)
