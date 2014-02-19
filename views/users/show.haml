@@ -31,6 +31,8 @@
           Refresh Token
         %th
           Raw Response
+        %th
+          Link
     %tbody
       - @providers.each do |provider|
         %tr
@@ -50,3 +52,7 @@
             #{provider.refresh_token}
           %td
             #{provider.raw_response}
+          %td
+            - if provider.name=='google'
+              %a{:href=>"/google_test?providerid=#{provider.id}"}
+                Test

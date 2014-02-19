@@ -1,0 +1,186 @@
+%form{:method=>'GET'}
+  %input{:type=>'hidden',:name=>'providerid',:value=>@provider.id}
+  %select{:name=>'profile'}
+    -@profiles.each do |profile|
+      %option{:value=>profile.id,:selected=>params[:profile]==profile.id}
+        #{profile.name}
+  %input{:type=>'submit',:value=>'GET'}
+- if params[:profile]
+  Referrers for the last 100 days:
+  %table
+    %tbody
+      -@referrers.each do |referrer|
+        %tr
+          %td
+            #{referrer}
+  Visits per day for the last 100 days:
+  %div
+    Metric name:#{@visits_day.name}
+  %div
+    Metric unit:#{@visits_day.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@visits_day.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Visits per week for the last 100 days:
+  %div
+    Metric name:#{@visits_week.name}
+  %div
+    Metric unit:#{@visits_week.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@visits_week.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Visits per month for the last 100 days:
+  %div
+    Metric name:#{@visits_month.name}
+  %div
+    Metric unit:#{@visits_month.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@visits_month.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Visitors per day for the last 100 days:
+  %div
+    Metric name:#{@visitors_day.name}
+  %div
+    Metric unit:#{@visitors_day.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@visitors_day.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Visitors per week for the last 100 days:
+  %div
+    Metric name:#{@visitors_week.name}
+  %div
+    Metric unit:#{@visitors_week.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@visitors_week.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Visitors per month for the last 100 days:
+  %div
+    Metric name:#{@visitors_month.name}
+  %div
+    Metric unit:#{@visitors_month.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@visitors_month.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Bounces per day for the last 100 days:
+  %div
+    Metric name:#{@bounces_day.name}
+  %div
+    Metric unit:#{@bounces_day.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@bounces_day.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Bounces per week for the last 100 days:
+  %div
+    Metric name:#{@bounces_week.name}
+  %div
+    Metric unit:#{@bounces_week.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@bounces_week.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Bounces per month for the last 100 days:
+  %div
+    Metric name:#{@bounces_month.name}
+  %div
+    Metric unit:#{@bounces_month.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@bounces_month.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
