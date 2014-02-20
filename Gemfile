@@ -1,3 +1,4 @@
+source 'https://LUpcJj5WksVL83Hoqsw2@gem.fury.io/app21719769_heroku_com/'
 source 'https://rubygems.org'
 
 gem 'haml'
@@ -18,4 +19,4 @@ gem 'json'
 gem 'rspec'
 gem 'rack-test'
 gem 'legato'
-gem 'uphex-prototype-cynosure', :path => 'vendor/uphex-prototype-cynosure-0.0.1'
+gem 'uphex-prototype-cynosure'

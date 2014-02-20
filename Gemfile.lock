@@ -1,11 +1,5 @@
-PATH
-  remote: vendor/uphex-prototype-cynosure
-  specs:
-    uphex-prototype-cynosure (0.0.1)
-      legato
-      oauth2
-
 GEM
+  remote: https://LUpcJj5WksVL83Hoqsw2@gem.fury.io/app21719769_heroku_com/
   remote: https://rubygems.org/
   specs:
     activemodel (4.0.3)
@@ -90,6 +84,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
+    uphex-prototype-cynosure (0.0.1)
+      legato
+      oauth2
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -110,5 +107,5 @@ DEPENDENCIES
   rspec
   sinatra
   sqlite3
-  uphex-prototype-cynosure!
+  uphex-prototype-cynosure
   warden
