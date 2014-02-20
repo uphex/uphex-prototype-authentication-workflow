@@ -6,9 +6,12 @@ class GoogleTestController < ApplicationController
       redirect '/sessions/new'
     end
 
+    @config=JSON.parse(File.read(File.expand_path("../../auth_config.json", __FILE__)))
+
+
     @provider=Provider.find params[:providerid].to_i
 
-    client= Uphex::Prototype::Cynosure::Shiatsu.client :google
+    client= Uphex::Prototype::Cynosure::Shiatsu.client(:google,@config['oauth-v2']['providers']['google']['identifier'],@config['oauth-v2']['providers']['google']['secret'])
     client.authenticate(@provider.access_token,@provider.expiration_date,@provider.refresh_token)
     @profiles= client.profiles
 
