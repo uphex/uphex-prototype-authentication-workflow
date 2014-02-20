@@ -1,3 +1,5 @@
+require 'uphex/prototype/cynosure'
+
 class GoogleTestController < ApplicationController
   get '/' do
     unless env['warden'].authenticated?
@@ -6,7 +8,7 @@ class GoogleTestController < ApplicationController
 
     @provider=Provider.find params[:providerid].to_i
 
-    client= Shiatsu.client :google
+    client= Uphex::Prototype::Cynosure::Shiatsu.client :google
     client.authenticate(@provider.access_token,@provider.expiration_date,@provider.refresh_token)
     @profiles= client.profiles
 

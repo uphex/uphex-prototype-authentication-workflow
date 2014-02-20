@@ -14,8 +14,6 @@ require File.expand_path("../controllers/TwitterAuthenticationStrategy.rb", __FI
 require File.expand_path("../controllers/auth_controller.rb", __FILE__)
 require File.expand_path("../controllers/google_test_controller.rb", __FILE__)
 
-require File.expand_path("../shiatsu/shiatsu.rb", __FILE__)
-
 require File.expand_path("../models/user.rb", __FILE__)
 require File.expand_path("../models/provider.rb", __FILE__)
 
