@@ -1,6 +1,5 @@
-GIT
-  remote: git@github.com:uphex/uphex-prototype-cynosure.git
-  revision: b80137e1c498875e01bf715a1ee28e6753ff2cc9
+PATH
+  remote: vendor/uphex-prototype-cynosure
   specs:
     uphex-prototype-cynosure (0.0.1)
       legato
