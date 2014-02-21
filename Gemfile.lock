@@ -84,7 +84,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
-    uphex-prototype-cynosure (0.0.1)
+    uphex-prototype-cynosure (0.0.2)
       legato
       oauth2
     warden (1.2.3)
@@ -107,5 +107,5 @@ DEPENDENCIES
   rspec
   sinatra
   sqlite3
-  uphex-prototype-cynosure
+  uphex-prototype-cynosure (= 0.0.2)
   warden
