@@ -19,4 +19,4 @@ gem 'json'
 gem 'rspec'
 gem 'rack-test'
 gem 'legato'
-gem 'uphex-prototype-cynosure'
+gem 'uphex-prototype-cynosure' ,:path => "/home/sashee/workspace/uphex-prototype-cynosure"
