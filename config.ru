@@ -13,6 +13,7 @@ require File.expand_path("../controllers/MailchimpAuthenticationStrategy.rb", __
 require File.expand_path("../controllers/TwitterAuthenticationStrategy.rb", __FILE__)
 require File.expand_path("../controllers/auth_controller.rb", __FILE__)
 require File.expand_path("../controllers/google_test_controller.rb", __FILE__)
+require File.expand_path("../controllers/twitter_test_controller.rb", __FILE__)
 
 require File.expand_path("../models/user.rb", __FILE__)
 require File.expand_path("../models/provider.rb", __FILE__)
@@ -24,6 +25,7 @@ map('/verifications') { run VerificationsController }
 map('/auth') { run AuthController }
 map('/') { run ApplicationController }
 map('/google_test') { run GoogleTestController }
+map('/twitter_test') { run TwitterTestController }
 
 if ENV['RACK_ENV']=='production'
   ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])

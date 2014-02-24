@@ -56,3 +56,6 @@
             - if provider.name=='google'
               %a{:href=>"/google_test?providerid=#{provider.id}"}
                 Test
+            - if provider.name=='twitter'
+              %a{:href=>"/twitter_test?providerid=#{provider.id}"}
+                Test

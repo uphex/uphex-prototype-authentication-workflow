@@ -1,0 +1,35 @@
+%div
+  Followers count: #{@followers_count}
+%div
+  User following count: #{@user_following_count}
+%form{:method=>'GET'}
+  %input{:type=>'hidden',:name=>'providerid',:value=>@provider.id}
+  %select{:name=>'tweet_id'}
+    -@tweets.each do |tweet|
+      %option{:value=>tweet.id,:selected=>params[:tweet_id].to_i==tweet.id}
+        #{tweet.id}
+  %input{:type=>'submit',:value=>'GET'}
+- if params[:tweet_id]
+  %div
+    Retweets count: #{@retweets_count}
+  Visits per day for the last 100 days:
+  %div
+    Metric name:#{@retweets.name}
+  %div
+    Metric unit:#{@retweets.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload.text
+    %tbody
+      -@retweets.value.each do |retweet|
+        %tr
+          %td
+            #{retweet[:timestamp]}
+          %td
+            #{retweet[:payload].text}
+  %div
+    Favorites count: #{@favorites_count}
