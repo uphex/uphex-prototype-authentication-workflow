@@ -1,0 +1,45 @@
+%form{:method=>'GET'}
+  %select{:name=>'provider_id'}
+    -@pages.each do |page|
+      %option{:value=>page[:provider]['id'],:selected=>params[:provider_id]==page[:page]['id']}
+        #{page[:page]['name']}
+  %input{:type=>'submit',:value=>'GET'}
+- if params[:provider_id]
+  Page visits per day for the last 180 days:
+  %div
+    Metric name:#{@page_visits.name}
+  %div
+    Metric unit:#{@page_visits.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@page_visits.value.each do |visit|
+        %tr
+          %td
+            #{visit[:timestamp]}
+          %td
+            #{visit[:payload]}
+  Likes per day for the last 180 days:
+  %div
+    Metric name:#{@page_likes.name}
+  %div
+    Metric unit:#{@page_likes.unit}
+  %table
+    %thead
+      %tr
+        %th
+          Timestamp
+        %th
+          Payload
+    %tbody
+      -@page_likes.value.each do |like|
+        %tr
+          %td
+            #{like[:timestamp]}
+          %td
+            #{like[:payload]}

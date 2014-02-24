@@ -2,14 +2,18 @@
   Verification successful
 %div Email: #{@currentuser.email}
 %div Verified: #{@currentuser.verified}
-%a{:href=>'/auth/oauth-v2/google'}
-  Add Google
-%a{:href=>'/auth/oauth-v1/twitter'}
-  Add Twitter
-%a{:href=>'/auth/oauth-v2/facebook'}
-  Add Facebook
-%a{:href=>'/auth/oauth-v2/mailchimp'}
-  Add Mailchimp
+%div
+  %a{:href=>'/auth/oauth-v2/google'}
+    Add Google
+  %a{:href=>'/auth/oauth-v1/twitter'}
+    Add Twitter
+  %a{:href=>'/auth/oauth-v2/facebook'}
+    Add Facebook
+  %a{:href=>'/auth/oauth-v2/mailchimp'}
+    Add Mailchimp
+%div
+  %a{:href=>"/facebook_test"}
+    Test facebook
 %div Services:
 %div
   %table

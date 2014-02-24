@@ -14,6 +14,7 @@ require File.expand_path("../controllers/TwitterAuthenticationStrategy.rb", __FI
 require File.expand_path("../controllers/auth_controller.rb", __FILE__)
 require File.expand_path("../controllers/google_test_controller.rb", __FILE__)
 require File.expand_path("../controllers/twitter_test_controller.rb", __FILE__)
+require File.expand_path("../controllers/facebook_test_controller.rb", __FILE__)
 
 require File.expand_path("../models/user.rb", __FILE__)
 require File.expand_path("../models/provider.rb", __FILE__)
@@ -26,6 +27,7 @@ map('/auth') { run AuthController }
 map('/') { run ApplicationController }
 map('/google_test') { run GoogleTestController }
 map('/twitter_test') { run TwitterTestController }
+map('/facebook_test') { run FacebookTestController }
 
 if ENV['RACK_ENV']=='production'
   ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
