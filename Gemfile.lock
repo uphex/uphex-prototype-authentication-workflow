@@ -109,7 +109,7 @@ GEM
       naught (~> 1.0)
       simple_oauth (~> 0.2.0)
     tzinfo (0.3.38)
-    uphex-prototype-cynosure (0.0.4)
+    uphex-prototype-cynosure (0.0.5)
       koala
       legato
       oauth2
@@ -133,5 +133,5 @@ DEPENDENCIES
   rspec
   sinatra
   sqlite3
-  uphex-prototype-cynosure (= 0.0.4)
+  uphex-prototype-cynosure (= 0.0.5)
   warden
